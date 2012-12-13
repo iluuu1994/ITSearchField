@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Expanding Search' target in the 'Expanding Search' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
