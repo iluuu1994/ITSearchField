@@ -34,6 +34,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "NSView+NSLayoutConstraintFilter.h"
+#import "NSAnimationContext+Blocks.h"
 
 #define kCollapsedWidth 26
 #define kDefaultExpandedWidth 200.0
@@ -45,7 +46,6 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.translatesAutoresizingMaskIntoConstraints = NO;
         _isCollapsed = YES;
         _expandedWidth = kDefaultExpandedWidth;
         _animationDuration = kDefaultAnimationDuration;
@@ -59,11 +59,7 @@
     
     float newWidth = (isCollapsed)?kCollapsedWidth:self.expandedWidth;
     
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
-    [[NSAnimationContext currentContext] setDuration:self.animationDuration];
-    
-    [[NSAnimationContext currentContext] setCompletionHandler:^{
+    [NSAnimationContext groupWithDuration:self.animationDuration timingFunctionWithName:kCAMediaTimingFunctionEaseOut completionHandler:^{
         if (!isCollapsed) {
             [self.window makeFirstResponder:self];
         }
@@ -71,13 +67,11 @@
         // Sometimes the view doesn't redraw when the animation is slow.
         // Therefore we do a redraw the control at the end of the animation.
         [self setNeedsDisplay:YES];
-    }];
-    
-    {
+    } animationBlock:^{
         NSLayoutConstraint *constraint = [self constraintForAttribute:NSLayoutAttributeWidth];
         [[constraint animator] setConstant:newWidth];
-    }
-    [NSAnimationContext endGrouping];
+    }];
+    
 }
 
 - (float)collapsedWidth {

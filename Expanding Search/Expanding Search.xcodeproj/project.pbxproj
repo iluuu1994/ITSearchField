@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		911EE101167A05C400F5B67C /* search-pushed.png in Resources */ = {isa = PBXBuildFile; fileRef = 911EE0FF167A05C400F5B67C /* search-pushed.png */; };
 		911EE102167A05C400F5B67C /* search-pushed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 911EE100167A05C400F5B67C /* search-pushed@2x.png */; };
+		9156378516824B7E00A35DCF /* NSAnimationContext+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9156378416824B7E00A35DCF /* NSAnimationContext+Blocks.m */; };
 		916557271677A53700AC2A84 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916557261677A53700AC2A84 /* QuartzCore.framework */; };
 		9173CA6D166D346D0041A214 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9173CA6C166D346D0041A214 /* Cocoa.framework */; };
 		9173CA77166D346D0041A214 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9173CA75166D346D0041A214 /* InfoPlist.strings */; };
@@ -18,14 +19,16 @@
 		9173CA83166D346D0041A214 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9173CA81166D346D0041A214 /* MainMenu.xib */; };
 		9173CA8B166D354B0041A214 /* ITSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9173CA8A166D354B0041A214 /* ITSearchField.m */; };
 		9173CA8E166D356B0041A214 /* ITSearchFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9173CA8D166D356B0041A214 /* ITSearchFieldCell.m */; };
+		91900F36167F47A300FEC4ED /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 91900F34167F47A300FEC4ED /* search.png */; };
+		91900F37167F47A300FEC4ED /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91900F35167F47A300FEC4ED /* search@2x.png */; };
 		91B7900D1679E47B009D2478 /* NSView+NSLayoutConstraintFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B7900C1679E47B009D2478 /* NSView+NSLayoutConstraintFilter.m */; };
-		91F8277B1677AEA30038E32D /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F827791677AEA30038E32D /* search.png */; };
-		91F8277C1677AEA30038E32D /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F8277A1677AEA30038E32D /* search@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		911EE0FF167A05C400F5B67C /* search-pushed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-pushed.png"; sourceTree = "<group>"; };
 		911EE100167A05C400F5B67C /* search-pushed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-pushed@2x.png"; sourceTree = "<group>"; };
+		9156378316824B7E00A35DCF /* NSAnimationContext+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAnimationContext+Blocks.h"; sourceTree = "<group>"; };
+		9156378416824B7E00A35DCF /* NSAnimationContext+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAnimationContext+Blocks.m"; sourceTree = "<group>"; };
 		916557261677A53700AC2A84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9173CA68166D346D0041A214 /* Expanding Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expanding Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9173CA6C166D346D0041A214 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -44,10 +47,10 @@
 		9173CA8A166D354B0041A214 /* ITSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITSearchField.m; sourceTree = "<group>"; };
 		9173CA8C166D356B0041A214 /* ITSearchFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITSearchFieldCell.h; sourceTree = "<group>"; };
 		9173CA8D166D356B0041A214 /* ITSearchFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITSearchFieldCell.m; sourceTree = "<group>"; };
+		91900F34167F47A300FEC4ED /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		91900F35167F47A300FEC4ED /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 		91B7900B1679E47B009D2478 /* NSView+NSLayoutConstraintFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+NSLayoutConstraintFilter.h"; sourceTree = "<group>"; };
 		91B7900C1679E47B009D2478 /* NSView+NSLayoutConstraintFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+NSLayoutConstraintFilter.m"; sourceTree = "<group>"; };
-		91F827791677AEA30038E32D /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
-		91F8277A1677AEA30038E32D /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,15 @@
 			name = "NSView Category";
 			sourceTree = "<group>";
 		};
+		9156378116824B6A00A35DCF /* NSAnimationContext Category */ = {
+			isa = PBXGroup;
+			children = (
+				9156378316824B7E00A35DCF /* NSAnimationContext+Blocks.h */,
+				9156378416824B7E00A35DCF /* NSAnimationContext+Blocks.m */,
+			);
+			name = "NSAnimationContext Category";
+			sourceTree = "<group>";
+		};
 		91599347167903F300D2D7E1 /* Search Field */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +99,8 @@
 		91599348167903FF00D2D7E1 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				91F827791677AEA30038E32D /* search.png */,
-				91F8277A1677AEA30038E32D /* search@2x.png */,
+				91900F34167F47A300FEC4ED /* search.png */,
+				91900F35167F47A300FEC4ED /* search@2x.png */,
 				911EE0FF167A05C400F5B67C /* search-pushed.png */,
 				911EE100167A05C400F5B67C /* search-pushed@2x.png */,
 			);
@@ -140,6 +152,7 @@
 				9173CA81166D346D0041A214 /* MainMenu.xib */,
 				91599347167903F300D2D7E1 /* Search Field */,
 				911EE103167A0F5A00F5B67C /* NSView Category */,
+				9156378116824B6A00A35DCF /* NSAnimationContext Category */,
 				9173CA73166D346D0041A214 /* Supporting Files */,
 			);
 			path = "Expanding Search";
@@ -212,10 +225,10 @@
 				9173CA77166D346D0041A214 /* InfoPlist.strings in Resources */,
 				9173CA7D166D346D0041A214 /* Credits.rtf in Resources */,
 				9173CA83166D346D0041A214 /* MainMenu.xib in Resources */,
-				91F8277B1677AEA30038E32D /* search.png in Resources */,
-				91F8277C1677AEA30038E32D /* search@2x.png in Resources */,
 				911EE101167A05C400F5B67C /* search-pushed.png in Resources */,
 				911EE102167A05C400F5B67C /* search-pushed@2x.png in Resources */,
+				91900F36167F47A300FEC4ED /* search.png in Resources */,
+				91900F37167F47A300FEC4ED /* search@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +244,7 @@
 				9173CA8B166D354B0041A214 /* ITSearchField.m in Sources */,
 				9173CA8E166D356B0041A214 /* ITSearchFieldCell.m in Sources */,
 				91B7900D1679E47B009D2478 /* NSView+NSLayoutConstraintFilter.m in Sources */,
+				9156378516824B7E00A35DCF /* NSAnimationContext+Blocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
