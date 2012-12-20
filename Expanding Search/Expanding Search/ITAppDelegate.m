@@ -33,6 +33,30 @@
 
 @implementation ITAppDelegate
 
+/*
+ * Everything in the .m file is optional
+ */
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+    [self.searchField setDelegate:self];
+}
+
+- (void)searchFieldDidExpand:(ITSearchField *)searchField {
+    NSLog(@"expanded");
+}
+
+- (void)searchFieldDidCollapse:(ITSearchField *)searchField {
+    NSLog(@"collapsed");
+}
+
+- (BOOL)searchFieldShouldCollapse:(ITSearchField *)searchField {
+    return YES;
+}
+
+- (BOOL)searchFieldShouldExpand:(ITSearchField *)searchField {
+    return YES;
+}
+
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES;
 }

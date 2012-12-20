@@ -53,33 +53,73 @@
     return self;
 }
 
+- (void)toggleWidth {
+    self.isCollapsed = !self.isCollapsed;
+}
+
+- (BOOL)_canExpand {
+    if ([self.delegate respondsToSelector:@selector(searchFieldShouldExpand:)]) {
+        return [self.delegate searchFieldShouldExpand:self];
+    }
+    
+    return YES;
+}
+
+- (BOOL)_canCollapse {
+    if ([self.delegate respondsToSelector:@selector(searchFieldShouldCollapse:)]) {
+        return [self.delegate searchFieldShouldCollapse:self];
+    }
+    
+    return YES;
+}
+
+#pragma mark Setters & Getters
+- (id<ITSearchFieldDelegate>)delegate {
+    return super.delegate;
+}
+- (void)setDelegate:(id<ITSearchFieldDelegate>)anObject {
+    [super setDelegate:anObject];
+}
+
 - (void)setIsCollapsed:(BOOL)isCollapsed {
-    _isCollapsed = isCollapsed;
-    [self.window makeFirstResponder:nil];
+    BOOL performAction = (isCollapsed)?[self _canCollapse]:[self _canExpand];
     
-    float newWidth = (isCollapsed)?kCollapsedWidth:self.expandedWidth;
+    if (performAction) {
     
-    [NSAnimationContext groupWithDuration:self.animationDuration timingFunctionWithName:kCAMediaTimingFunctionEaseOut completionHandler:^{
-        if (!isCollapsed) {
-            [self.window makeFirstResponder:self];
-        }
+        _isCollapsed = isCollapsed;
+        [self.window makeFirstResponder:nil];
         
-        // Sometimes the view doesn't redraw when the animation is slow.
-        // Therefore we do a redraw the control at the end of the animation.
-        [self setNeedsDisplay:YES];
-    } animationBlock:^{
-        NSLayoutConstraint *constraint = [self constraintForAttribute:NSLayoutAttributeWidth];
-        [[constraint animator] setConstant:newWidth];
-    }];
+        float newWidth = (isCollapsed)?kCollapsedWidth:self.expandedWidth;
+        
+        [NSAnimationContext groupWithDuration:self.animationDuration timingFunctionWithName:kCAMediaTimingFunctionEaseOut completionHandler:^{
+            if (!isCollapsed) {
+                [self.window makeFirstResponder:self];
+            }
+            
+            // Sometimes the view doesn't redraw when the animation is slow.
+            // Therefore we do a redraw the control at the end of the animation.
+            [self setNeedsDisplay:YES];
+            
+            // Notify the delegate
+            if (_isCollapsed) {
+                if ([self.delegate respondsToSelector:@selector(searchFieldDidCollapse:)]) {
+                    [self.delegate searchFieldDidCollapse:self];
+                }
+            } else {
+                if ([self.delegate respondsToSelector:@selector(searchFieldDidExpand:)]) {
+                    [self.delegate searchFieldDidExpand:self];
+                }
+            }
+        } animationBlock:^{
+            NSLayoutConstraint *constraint = [self constraintForAttribute:NSLayoutAttributeWidth];
+            [[constraint animator] setConstant:newWidth];
+        }];    
     
+    }
 }
 
 - (float)collapsedWidth {
     return kCollapsedWidth;
-}
-
-- (void)toggleWidth {
-    self.isCollapsed = !self.isCollapsed;
 }
 
 @end

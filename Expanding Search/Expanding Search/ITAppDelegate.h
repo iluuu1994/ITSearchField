@@ -30,10 +30,11 @@
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import <Cocoa/Cocoa.h>
+#import "ITSearchField.h"
 
 @class ITSearchField;
 
-@interface ITAppDelegate : NSObject <NSApplicationDelegate>
+@interface ITAppDelegate : NSObject <NSApplicationDelegate, ITSearchFieldDelegate>
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet ITSearchField *searchField;
 @end

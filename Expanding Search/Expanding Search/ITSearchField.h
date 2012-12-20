@@ -31,6 +31,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+/**
+ * ITSearchFieldDelegate
+ */
+@class ITSearchField;
+
+@protocol ITSearchFieldDelegate <NSTextFieldDelegate>
+@optional
+- (BOOL)searchFieldShouldExpand:(ITSearchField *)searchField;
+- (BOOL)searchFieldShouldCollapse:(ITSearchField *)searchField;
+- (void)searchFieldDidExpand:(ITSearchField *)searchField;
+- (void)searchFieldDidCollapse:(ITSearchField *)searchField;
+@end
+
 @interface ITSearchField : NSSearchField
 
 @property (nonatomic) BOOL isCollapsed;
@@ -40,5 +53,9 @@
 @property (nonatomic, readonly) float collapsedWidth;
 
 - (void)toggleWidth;
+
+// Override delegate setter & getter
+- (id<ITSearchFieldDelegate>)delegate;
+- (void)setDelegate:(id<ITSearchFieldDelegate>)anObject;
 
 @end
