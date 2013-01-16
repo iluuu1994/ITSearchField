@@ -85,8 +85,6 @@
     BOOL performAction = (isCollapsed)?[self _canCollapse]:[self _canExpand];
     
     if (performAction) {
-    
-        _isCollapsed = isCollapsed;
         [self.window makeFirstResponder:nil];
         
         float newWidth = (isCollapsed)?kCollapsedWidth:self.expandedWidth;
@@ -110,6 +108,8 @@
                     [self.delegate searchFieldDidExpand:self];
                 }
             }
+            
+            _isCollapsed = isCollapsed;
         } animationBlock:^{
             NSLayoutConstraint *constraint = [self constraintForAttribute:NSLayoutAttributeWidth];
             [[constraint animator] setConstant:newWidth];

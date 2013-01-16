@@ -57,8 +57,25 @@
     return YES;
 }
 
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    NSLog(@"%d", self.searchField.isCollapsed);
+    return NSTerminateCancel;
+}
+
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES;
+}
+
+- (void)controlTextDidEndEditing:(NSNotification *)obj {
+    if (!self.searchField.isCollapsed && !self.searchField.stringValue.length) {
+        self.searchField.isCollapsed = YES;
+    }
+}
+
+- (void)controlTextDidBeginEditing:(NSNotification *)obj {
+    if (self.searchField.isCollapsed) {
+        self.searchField.isCollapsed = NO;
+    }
 }
 
 @end
